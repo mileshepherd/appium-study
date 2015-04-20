@@ -13,6 +13,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.apache.commons.lang.RandomStringUtils;
@@ -76,6 +77,8 @@ public class UICatalogTest {
         capabilities.setCapability("deviceName", "iPhone 5s");
    
         driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @After
@@ -120,7 +123,7 @@ public class UICatalogTest {
 		//click done to login
 		driver.findElementByName("Done").click();
 		//verify login successfully
-		assertNotNull(driver.findElementByXPath("UIATabBar"));
+		assertNotNull(driver.findElementByXPath("//UIATabBar"));
     }
     
     @Test
