@@ -44,6 +44,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
   * with the 'UICatalog' iPhone project which is included in the Appium source distribution.
  *
  * @author Ross Rowe
+ * @updater Miles Shepherd
  */
 @SuppressWarnings("deprecation")
 public class UICatalogTest {
