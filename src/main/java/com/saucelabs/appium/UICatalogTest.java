@@ -27,6 +27,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Dimension;
@@ -126,7 +127,7 @@ public class UICatalogTest {
 		assertNotNull(driver.findElementByXPath("//UIATabBar"));
     }
     
-    @Test
+    @Ignore
     public void testFindElement() throws Exception {
     	//the first view is not a table, clic the button to go back.
     	driver.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIAStaticText[1]").getText();
@@ -153,7 +154,7 @@ public class UICatalogTest {
         assertNotNull(nav_bar);
     }
 
-	@Test
+    @Ignore
     public void test_location() {
         //get third row location
         row = driver.findElementsByClassName("UIATableCell").get(2);
@@ -161,7 +162,7 @@ public class UICatalogTest {
         assertEquals(152, row.getLocation().getY());
     }
 
-    @Test
+    @Ignore
     public void testScreenshot() {
         //make screenshot and get is as base64
         WebDriver augmentedDriver = new Augmenter().augment(driver);
@@ -173,7 +174,7 @@ public class UICatalogTest {
         assertNotNull(file);
     }
 
-    @Test
+    @Ignore
     public void testTextFieldEdit() {
         //go to the text fields section
         openMenuPosition(2);
@@ -196,7 +197,7 @@ public class UICatalogTest {
         assertEquals(default_val, text_field.getAttribute("value"));
     }
 
-    @Test
+    @Ignore
     public void testAlertInteraction() {
         //go to the alerts section
         openMenuPosition(10);
@@ -210,7 +211,7 @@ public class UICatalogTest {
         alert.accept();
     }
 
-    @Test
+    @Ignore
     public void testScroll() {
         //scroll menu
         //get initial third row location
@@ -225,7 +226,7 @@ public class UICatalogTest {
         assertNotSame(location1.getY(), location2.getY());
     }
 
-    @Test
+    @Ignore
     public void testSlider() {
       //go to controls
       openMenuPosition(1);
@@ -237,7 +238,7 @@ public class UICatalogTest {
       assertEquals("0%", slider.getAttribute("value"));
     }
 
-    @Test
+    @Ignore
     public void testSessions() throws Exception {
       HttpGet request = new HttpGet("http://localhost:4723/wd/hub/sessions");
       @SuppressWarnings("resource")
@@ -250,7 +251,7 @@ public class UICatalogTest {
       assertEquals(jsonObject.get("sessionId"), sessionId);
     }
 
-    @Test
+    @Ignore
     public void testSize() {
         Dimension table = driver.findElementByClassName("UIATableView").getSize();
         Dimension cell = driver.findElementsByClassName("UIATableCell").get(0).getSize();
@@ -258,7 +259,7 @@ public class UICatalogTest {
         assertNotSame(table.getHeight(), cell.getHeight());
     }
 
-    @Test
+    @Ignore
     public void testSource() {
         //get main view soruce
         String source_main = driver.getPageSource();
